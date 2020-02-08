@@ -41,22 +41,25 @@ struct Game {
     // MARK: private methods
     private mutating func placeZombies() {
         // TODO: place zombies according to given rules
-        
-        var numberOfZombies = 0
-        
-        while numberOfZombies < 2 {
+        addItemstogrid("🧟", for: 1)
+        addItemstogrid("🚧", for: 1)
+    }
+    
+    private mutating func addItemstogrid (_ item:String, for itemNum:Int){
+        var index = 0
+        while index < itemNum{
             let x = Int.random(in: 0...4)
             let y = Int.random(in: 0...4)
             if !((x == 0 || x == 1) && (y == 0 || y == 1)) && !((x == 3 || x == 4) && (y == 3 || y == 4)) {
-                if grid[x][y] != "🧟" {
-                    updateSquare(x, y, "🧟")
-                    numberOfZombies += 1
+                if grid[x][y] !=  "🧟" && grid[x][y] !=  "🔦" && grid[x][y] !=  "🚧" {
+                    updateSquare(x, y, item)
+                    index += 1
                 }
             }
             
         }
-        
     }
+        
     
     private var playerPosition: (Int, Int) {
         for (x, row) in grid.enumerated() {
@@ -97,11 +100,12 @@ struct Game {
     func canPlayerMove(_ direction: Direction) -> Bool {
         // FIXME: this is buggy-fixed
         let (x, y) = playerPosition
+        let (xblockOptional,yblockOptional) = blockedPos
         switch direction {
-        case .up: return x != 0
-        case .left: return y != 0
-        case .right: return y != 4
-        case .down: return x != 4
+        case .up: return (x != 0) && ((x-1) != xblockOptional)
+        case .left: return (y != 0) && ((y-1) != yblockOptional)
+        case .right: return (y != 4) && ((y+1) != yblockOptional)
+        case .down: return (x != 4) && ((x+1) != xblockOptional)
         }
     }
     
@@ -131,7 +135,12 @@ struct Game {
                     (x, y) == leftPositionView {
                     if grid[x][y] == "🧟" {
                         visibleGrid[x][y] = "🧟"
-                    } else {
+                    } else if grid[x][y] == "🚧"{
+                        visibleGrid[x][y] = "🚧"
+                    } else if grid[x][y] == "🔦"{
+                        visibleGrid[x][y] = "🔦"
+                        
+                    }else{
                         visibleGrid[x][y] = "⬜️"
                     }
                 } else {
@@ -139,6 +148,7 @@ struct Game {
                 }
             }
         }
+        print(grid)
         return visibleGrid
     }
     
@@ -159,6 +169,18 @@ struct Game {
             }
         }
         return isLost
+    }
+    
+    var blockedPos: (Int? , Int?){
+        
+        for (x, row) in visibleGrid.enumerated() {
+            for (y, square) in row.enumerated() {
+                if square == "🚧" {
+                    return (x , y)
+                }
+            }
+        }
+        return (nil, nil)
     }
     
 }
