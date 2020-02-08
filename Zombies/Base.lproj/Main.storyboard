@@ -305,6 +305,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ddw-9o-97S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="40k-HB-Bz6"/>
                             <constraint firstItem="nhN-HO-6Zb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="9QD-qj-EQ0"/>
@@ -327,6 +328,9 @@
                             <constraint firstItem="Ddw-9o-97S" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="y24-Zq-dNO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gj3-pb-r6s" appends="YES" id="2Mo-0i-Nbb"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="downButton" destination="luD-k4-kBY" id="mbS-df-OQa"/>
@@ -366,6 +370,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="gj3-pb-r6s">
+                    <connections>
+                        <action selector="didTapOverlayView:" destination="BYZ-38-t0r" id="ygv-fF-9p8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8359375" y="107.8125"/>
         </scene>
