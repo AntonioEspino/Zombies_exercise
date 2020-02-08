@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         newGame()
     }
-
+    
     // MARK: state management
     func updateGameState() {
         if game.hasLost {
@@ -113,8 +113,37 @@ class ViewController: UIViewController {
         // update buttons
         // TODO: disable buttons that are not possible, e.g. down when there is no way to go down
         // can you find a way to gray out the disabled button as well?
+        upButton.isEnabled = game.canPlayerMove(.up)
+        downButton.isEnabled =  game.canPlayerMove(.down)
+        rightButton.isEnabled = game.canPlayerMove(.right)
+        leftButton.isEnabled = game.canPlayerMove(.left)
+        
+        if upButton.isEnabled {
+            upButton.alpha = 1
+        } else {
+            upButton.alpha = 0.5
+        }
+        
+        if downButton.isEnabled {
+            downButton.alpha = 1
+        } else {
+            downButton.alpha = 0.5
+        }
+        
+        if rightButton.isEnabled {
+            rightButton.alpha = 1
+        } else {
+            rightButton.alpha = 0.5
+        }
+        
+        if leftButton.isEnabled {
+            leftButton.alpha = 1
+        } else {
+            leftButton.alpha = 0.5
+        }
+        
     }
-
+    
     func updateSquare(_ x: Int, _ y: Int, _ content: String) {
         // FIXME: this formula to translate (x, y) coordinates to tag id is buggy,
         // can you fix it? And what does that strange code with filter do?
@@ -156,6 +185,6 @@ class ViewController: UIViewController {
             finalMesageLabel.text =  "You lost! ☠️"
         }
     }
-
+    
 }
 
