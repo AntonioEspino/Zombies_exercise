@@ -98,7 +98,7 @@ struct Game {
     
     var hasWon: Bool {
         // FIXME: player cannot win, why?
-        return grid[0][1] == "🚶‍♂️" && grid[1][0] == "🚶‍♂️"
+        return grid[0][1] == "🚶‍♂️" || grid[1][0] == "🚶‍♂️"
     }
     
     var hasLost: Bool {
