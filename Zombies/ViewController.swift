@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     @IBAction func didTapOverlayView(_ sender: UITapGestureRecognizer) {
         if remainingLives == 0 || game.hasWon {
             newGame()
-        } else {
+        } else if game.hasLost {
             newRound()
         }
     }

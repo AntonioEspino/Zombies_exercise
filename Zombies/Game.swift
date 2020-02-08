@@ -108,44 +108,42 @@ struct Game {
     var visibleGrid: [[String]] {
         // TODO: give a grid where only visible squares are copied, the rest
         // should be seen as ⬛️
-        // Creo el array que va a ser visible en la pantalla del ipad
+        
         var visibleGrid = grid
         
-        // Calculo las posiciones contiguas al jugador
-        let upPosition = (playerPosition.0 + 1, playerPosition.1)
-        let downPosition = (playerPosition.0 - 1, playerPosition.1)
-        let rightPosition = (playerPosition.0, playerPosition.1 + 1)
-        let leftPosition = (playerPosition.0, playerPosition.1 - 1)
+        let upPositionView = (playerPosition.0 + 1, playerPosition.1)
+        let downPositionView = (playerPosition.0 - 1, playerPosition.1)
+        let rightPositionView = (playerPosition.0 , playerPosition.1 + 1)
+        let leftPositionView = (playerPosition.0 , playerPosition.1 - 1)
         
-        // Recorro con un bucle el array grid para generar un array de la misma longitud, que es el que va a mostrarse en la pantalla del ipad
         for (x, row) in grid.enumerated() {
             for (y, _) in row.enumerated() {
-                // En la primera poscion del array que genero coloco el simbolo de la salida
+                
                 if  (x, y) == (0, 0) {
                     visibleGrid[x][y] = "🆘"
-                } else if (x, y) == playerPosition {
-                    visibleGrid[x][y] = "🚶‍♂️"
-                } else if (x, y) == upPosition ||
-                    (x, y) == downPosition ||
-                    (x, y) == rightPosition ||
-                    (x, y) == leftPosition {
-                    if grid[x][y] == "🧟" {
-                      visibleGrid[x][y] = "🧟"
-                    } else {
-                       visibleGrid[x][y] = "⬜️"
-                    }
                 }
-                else {
+                    
+                else if (x, y) == playerPosition {
+                    visibleGrid[x][y] = "🚶‍♂️"
+                } else if (x, y) == upPositionView ||
+                    (x, y) == downPositionView ||
+                    (x, y) == rightPositionView ||
+                    (x, y) == leftPositionView {
+                    if grid[x][y] == "🧟" {
+                        visibleGrid[x][y] = "🧟"
+                    } else {
+                        visibleGrid[x][y] = "⬜️"
+                    }
+                } else {
                     visibleGrid[x][y] = "⬛️"
                 }
             }
         }
-
         return visibleGrid
     }
     
     var hasWon: Bool {
-        // FIXME: player cannot win, why?-fixed
+        // FIXME: player cannot win , why?-fixed
         return grid[0][1] == "🚶‍♂️" || grid[1][0] == "🚶‍♂️"
     }
     
