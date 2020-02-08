@@ -82,9 +82,9 @@ struct Game {
         // FIXME: this is buggy
         let (x, y) = playerPosition
         switch direction {
-        case .up: return y != 0
-        case .left: return y != 4
-        case .right: return y != 0
+        case .up: return x != 0
+        case .left: return y != 0
+        case .right: return y != 4
         case .down: return x != 4
         }
     }
