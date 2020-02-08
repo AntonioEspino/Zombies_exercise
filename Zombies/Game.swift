@@ -55,7 +55,10 @@ struct Game {
     }
     
     private mutating func updateSquare(_ x: Int, _ y: Int, _ content: String) {
-        // FIXME: this can crash
+        // FIXME: this can crash - fixed
+        guard x >= 0 && x <= 4 && y >= 0 && y <= 4 else {
+            return
+        }
         grid[x][y] = content
     }
 
@@ -79,7 +82,7 @@ struct Game {
      }
     
     func canPlayerMove(_ direction: Direction) -> Bool {
-        // FIXME: this is buggy
+        // FIXME: this is buggy-fixed
         let (x, y) = playerPosition
         switch direction {
         case .up: return x != 0
@@ -97,7 +100,7 @@ struct Game {
     }
     
     var hasWon: Bool {
-        // FIXME: player cannot win, why?
+        // FIXME: player cannot win, why?-fixed
         return grid[0][1] == "🚶‍♂️" || grid[1][0] == "🚶‍♂️"
     }
     

@@ -338,31 +338,31 @@
                         <outlet property="totalLossesLabel" destination="0I7-n4-8d3" id="fWJ-Hm-U7d"/>
                         <outlet property="totalWinsLabel" destination="8Tl-NT-Bd1" id="G24-Vb-Cbt"/>
                         <outlet property="upButton" destination="sBj-qE-pbA" id="D2b-Ud-J8C"/>
-                        <outletCollection property="gridSquare" destination="PpW-2j-5E9" collectionClass="NSMutableArray" id="huo-72-N2s"/>
-                        <outletCollection property="gridSquare" destination="bQX-a3-H0x" collectionClass="NSMutableArray" id="ZUN-TW-oc8"/>
-                        <outletCollection property="gridSquare" destination="6pD-36-GX2" collectionClass="NSMutableArray" id="8Rd-ZZ-QiR"/>
-                        <outletCollection property="gridSquare" destination="wjy-mx-qQe" collectionClass="NSMutableArray" id="eip-3H-WKd"/>
-                        <outletCollection property="gridSquare" destination="n8Z-O9-0lD" collectionClass="NSMutableArray" id="A3u-cY-6Q2"/>
-                        <outletCollection property="gridSquare" destination="81R-Yo-MmU" collectionClass="NSMutableArray" id="giF-Q1-RrJ"/>
-                        <outletCollection property="gridSquare" destination="BF8-ef-wdi" collectionClass="NSMutableArray" id="bWm-Wo-lnR"/>
-                        <outletCollection property="gridSquare" destination="YCK-X8-dQp" collectionClass="NSMutableArray" id="EwN-SV-rGj"/>
-                        <outletCollection property="gridSquare" destination="5Jn-UW-KBG" collectionClass="NSMutableArray" id="aQ3-Ww-9HE"/>
-                        <outletCollection property="gridSquare" destination="hAz-Wm-9l2" collectionClass="NSMutableArray" id="Alr-rV-jep"/>
-                        <outletCollection property="gridSquare" destination="qfe-ov-msv" collectionClass="NSMutableArray" id="pHE-Ad-wdz"/>
-                        <outletCollection property="gridSquare" destination="7ET-bO-Rli" collectionClass="NSMutableArray" id="0mb-Cg-AkN"/>
-                        <outletCollection property="gridSquare" destination="lWa-Jl-Iph" collectionClass="NSMutableArray" id="GQV-IL-P3q"/>
-                        <outletCollection property="gridSquare" destination="b7O-3R-knb" collectionClass="NSMutableArray" id="2n9-M8-VVv"/>
-                        <outletCollection property="gridSquare" destination="dKu-QX-RGp" collectionClass="NSMutableArray" id="XRK-Uh-V0l"/>
-                        <outletCollection property="gridSquare" destination="vRq-kc-TkP" collectionClass="NSMutableArray" id="HsY-Lt-SNJ"/>
-                        <outletCollection property="gridSquare" destination="Ivp-3T-tcq" collectionClass="NSMutableArray" id="uBe-Zd-sgT"/>
-                        <outletCollection property="gridSquare" destination="lgv-SY-mp1" collectionClass="NSMutableArray" id="HMW-zA-UTi"/>
-                        <outletCollection property="gridSquare" destination="rci-J5-x5d" collectionClass="NSMutableArray" id="tMH-Y4-VNL"/>
-                        <outletCollection property="gridSquare" destination="oqM-L4-vs3" collectionClass="NSMutableArray" id="GqC-Np-dcp"/>
-                        <outletCollection property="gridSquare" destination="p3i-jL-SIS" collectionClass="NSMutableArray" id="sDb-yk-foL"/>
-                        <outletCollection property="gridSquare" destination="2Ll-b0-Ts8" collectionClass="NSMutableArray" id="ZY7-9G-eZ2"/>
-                        <outletCollection property="gridSquare" destination="wzh-15-fWu" collectionClass="NSMutableArray" id="S8b-dC-9fv"/>
-                        <outletCollection property="gridSquare" destination="UN9-j3-ui9" collectionClass="NSMutableArray" id="CE7-4s-pZp"/>
-                        <outletCollection property="gridSquare" destination="9n0-4H-DKx" collectionClass="NSMutableArray" id="GQM-Um-hLQ"/>
+                        <outletCollection property="gridSquare" destination="PpW-2j-5E9" collectionClass="NSMutableArray" id="hc1-gZ-Omw"/>
+                        <outletCollection property="gridSquare" destination="bQX-a3-H0x" collectionClass="NSMutableArray" id="7Ym-Fr-ZgA"/>
+                        <outletCollection property="gridSquare" destination="6pD-36-GX2" collectionClass="NSMutableArray" id="vdK-ma-Kdt"/>
+                        <outletCollection property="gridSquare" destination="wjy-mx-qQe" collectionClass="NSMutableArray" id="Vak-Uv-lDO"/>
+                        <outletCollection property="gridSquare" destination="n8Z-O9-0lD" collectionClass="NSMutableArray" id="Tk2-Xx-l34"/>
+                        <outletCollection property="gridSquare" destination="81R-Yo-MmU" collectionClass="NSMutableArray" id="HB3-wk-OYz"/>
+                        <outletCollection property="gridSquare" destination="BF8-ef-wdi" collectionClass="NSMutableArray" id="kI2-Zl-qRH"/>
+                        <outletCollection property="gridSquare" destination="YCK-X8-dQp" collectionClass="NSMutableArray" id="56B-6j-qiF"/>
+                        <outletCollection property="gridSquare" destination="5Jn-UW-KBG" collectionClass="NSMutableArray" id="H36-fX-TKm"/>
+                        <outletCollection property="gridSquare" destination="hAz-Wm-9l2" collectionClass="NSMutableArray" id="RMe-H0-exz"/>
+                        <outletCollection property="gridSquare" destination="qfe-ov-msv" collectionClass="NSMutableArray" id="mfv-Zy-hEp"/>
+                        <outletCollection property="gridSquare" destination="7ET-bO-Rli" collectionClass="NSMutableArray" id="YBQ-Hc-fkr"/>
+                        <outletCollection property="gridSquare" destination="lWa-Jl-Iph" collectionClass="NSMutableArray" id="0fu-i6-Hyq"/>
+                        <outletCollection property="gridSquare" destination="b7O-3R-knb" collectionClass="NSMutableArray" id="MFa-hO-wfo"/>
+                        <outletCollection property="gridSquare" destination="dKu-QX-RGp" collectionClass="NSMutableArray" id="XII-mB-5jp"/>
+                        <outletCollection property="gridSquare" destination="vRq-kc-TkP" collectionClass="NSMutableArray" id="ZDK-ex-kTJ"/>
+                        <outletCollection property="gridSquare" destination="Ivp-3T-tcq" collectionClass="NSMutableArray" id="Xco-Vs-TfK"/>
+                        <outletCollection property="gridSquare" destination="lgv-SY-mp1" collectionClass="NSMutableArray" id="aLQ-bP-HEw"/>
+                        <outletCollection property="gridSquare" destination="rci-J5-x5d" collectionClass="NSMutableArray" id="5fQ-NO-ONS"/>
+                        <outletCollection property="gridSquare" destination="oqM-L4-vs3" collectionClass="NSMutableArray" id="HNe-5U-rcy"/>
+                        <outletCollection property="gridSquare" destination="p3i-jL-SIS" collectionClass="NSMutableArray" id="XoL-is-KN4"/>
+                        <outletCollection property="gridSquare" destination="2Ll-b0-Ts8" collectionClass="NSMutableArray" id="rTB-ww-tQx"/>
+                        <outletCollection property="gridSquare" destination="wzh-15-fWu" collectionClass="NSMutableArray" id="4bd-oA-hKK"/>
+                        <outletCollection property="gridSquare" destination="UN9-j3-ui9" collectionClass="NSMutableArray" id="byN-6W-gqQ"/>
+                        <outletCollection property="gridSquare" destination="9n0-4H-DKx" collectionClass="NSMutableArray" id="6ws-Ka-SQ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
