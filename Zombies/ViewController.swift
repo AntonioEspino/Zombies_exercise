@@ -90,6 +90,8 @@ class ViewController: UIViewController {
         updateUI()
         hideFinalMessage()
         // TODO: update number of wins and losses in the UI
+        totalWinsLabel.text = "W: \(totalWins)"
+        totalLossesLabel.text = "L: \(totalLosses)"
     }
     
     func newRound() {

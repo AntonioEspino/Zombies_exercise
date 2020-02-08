@@ -41,6 +41,7 @@ struct Game {
     // MARK: private methods
     private mutating func placeZombies() {
         // TODO: place zombies according to given rules
+        
     }
     
     private var playerPosition: (Int, Int) {
