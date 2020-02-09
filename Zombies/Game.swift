@@ -17,6 +17,7 @@ enum Direction {
 
 struct Game {
     private var grid: [[String]]
+    private var isflashlightOn: Bool
     
     // available chars are:
     // ⬜️ = ground
@@ -34,7 +35,7 @@ struct Game {
                 ["⬜️", "⬜️", "⬜️", "⬜️", "⬜️"],
                 ["⬜️", "⬜️", "⬜️", "⬜️", "⬜️"],
                 ["⬜️", "⬜️", "⬜️", "⬜️", "🚶‍♂️"]]
-        
+        isflashlightOn = false
         placeZombies()
     }
     
@@ -42,7 +43,7 @@ struct Game {
     private mutating func placeZombies() {
         // TODO: place zombies according to given rules
         addItemstogrid("🧟", for: 1)
-        addItemstogrid("🚧", for: 1)
+        addItemstogrid("🔦", for: 1)
     }
     
     private mutating func addItemstogrid (_ item:String, for itemNum:Int){
@@ -59,7 +60,7 @@ struct Game {
             
         }
     }
-        
+    
     
     private var playerPosition: (Int, Int) {
         for (x, row) in grid.enumerated() {
@@ -81,6 +82,23 @@ struct Game {
     // MARK: public API
     mutating func movePlayer(_ direction: Direction) {
         precondition(canPlayerMove(direction))
+        let upPositionView = (playerPosition.0 + 1, playerPosition.1)
+        let downPositionView = (playerPosition.0 - 1, playerPosition.1)
+        let rightPositionView = (playerPosition.0 , playerPosition.1 + 1)
+        let leftPositionView = (playerPosition.0 , playerPosition.1 - 1)
+        
+        for (x, row) in grid.enumerated() {
+            for (y, square) in row.enumerated() {
+                if (x, y) == upPositionView ||
+                    (x, y) == downPositionView ||
+                    (x, y) == rightPositionView ||
+                    (x, y) == leftPositionView {
+                    if square == "🔦"{
+                        isflashlightOn = true
+                    }
+                }
+            }
+        }
         
         // move player
         let (x, y) = playerPosition
@@ -119,32 +137,33 @@ struct Game {
         let downPositionView = (playerPosition.0 - 1, playerPosition.1)
         let rightPositionView = (playerPosition.0 , playerPosition.1 + 1)
         let leftPositionView = (playerPosition.0 , playerPosition.1 - 1)
-        
-        for (x, row) in grid.enumerated() {
-            for (y, _) in row.enumerated() {
-                
-                if  (x, y) == (0, 0) {
-                    visibleGrid[x][y] = "🆘"
-                }
+        if !isflashlightOn {
+            for (x, row) in grid.enumerated() {
+                for (y, _) in row.enumerated() {
                     
-                else if (x, y) == playerPosition {
-                    visibleGrid[x][y] = "🚶‍♂️"
-                } else if (x, y) == upPositionView ||
-                    (x, y) == downPositionView ||
-                    (x, y) == rightPositionView ||
-                    (x, y) == leftPositionView {
-                    if grid[x][y] == "🧟" {
-                        visibleGrid[x][y] = "🧟"
-                    } else if grid[x][y] == "🚧"{
-                        visibleGrid[x][y] = "🚧"
-                    } else if grid[x][y] == "🔦"{
-                        visibleGrid[x][y] = "🔦"
-                        
-                    }else{
-                        visibleGrid[x][y] = "⬜️"
+                    if  (x, y) == (0, 0) {
+                        visibleGrid[x][y] = "🆘"
                     }
-                } else {
-                    visibleGrid[x][y] = "⬛️"
+                        
+                    else if (x, y) == playerPosition {
+                        visibleGrid[x][y] = "🚶‍♂️"
+                    } else if (x, y) == upPositionView ||
+                        (x, y) == downPositionView ||
+                        (x, y) == rightPositionView ||
+                        (x, y) == leftPositionView {
+                        if grid[x][y] == "🧟" {
+                            visibleGrid[x][y] = "🧟"
+                        } else if grid[x][y] == "🚧"{
+                            visibleGrid[x][y] = "🚧"
+                        } else if grid[x][y] == "🔦"{
+                            visibleGrid[x][y] = "🔦"
+                            
+                        }else{
+                            visibleGrid[x][y] = "⬜️"
+                        }
+                    } else {
+                        visibleGrid[x][y] = "⬛️"
+                    }
                 }
             }
         }
@@ -161,10 +180,19 @@ struct Game {
         // TODO: calculate when player has lost (when revealing a zombie)
         var isLost = false
         
-        for (_, row) in visibleGrid.enumerated() {
-            for (_, square) in row.enumerated() {
-                if square == "🧟" {
-                    isLost = true
+        let upPositionView = (playerPosition.0 + 1, playerPosition.1)
+        let downPositionView = (playerPosition.0 - 1, playerPosition.1)
+        let rightPositionView = (playerPosition.0 , playerPosition.1 + 1)
+        let leftPositionView = (playerPosition.0 , playerPosition.1 - 1)
+        
+        for (x, row) in grid.enumerated() {
+            for (y, square) in row.enumerated() {
+                if (x, y) == upPositionView ||
+                    (x, y) == downPositionView ||
+                    (x, y) == rightPositionView ||
+                    (x, y) == leftPositionView {
+                    if square == "🧟"{
+                        isLost = true}
                 }
             }
         }
