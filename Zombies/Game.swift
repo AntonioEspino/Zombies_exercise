@@ -182,5 +182,4 @@ struct Game {
         }
         return (nil, nil)
     }
-    
 }
