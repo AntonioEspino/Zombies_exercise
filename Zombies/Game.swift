@@ -86,7 +86,7 @@ struct Game {
         let downPositionView = (playerPosition.0 - 1, playerPosition.1)
         let rightPositionView = (playerPosition.0 , playerPosition.1 + 1)
         let leftPositionView = (playerPosition.0 , playerPosition.1 - 1)
-        
+        if !isflashlightOn{
         for (x, row) in grid.enumerated() {
             for (y, square) in row.enumerated() {
                 if (x, y) == upPositionView ||
@@ -99,6 +99,10 @@ struct Game {
                 }
             }
         }
+        }
+        if isflashlightOn {
+                ZombieMove()
+                   }
         
         // move player
         let (x, y) = playerPosition
@@ -113,6 +117,7 @@ struct Game {
         case .right:
             updateSquare(x, y+1, "🚶‍♂️")
         }
+       
     }
     
     func canPlayerMove(_ direction: Direction) -> Bool {
@@ -198,6 +203,7 @@ struct Game {
         }
         return isLost
     }
+
     
     var blockedPos: (Int? , Int?){
         
@@ -211,4 +217,48 @@ struct Game {
         return (nil, nil)
     }
     
-}
+    mutating func ZombieMove() {
+        
+        var xZombie: Int = -2
+        var yZombie: Int = -2
+        let xPlayer: Int
+        let yPlayer: Int
+        for (x, row) in grid.enumerated() {
+                  for (y, square) in row.enumerated() {
+                      if square == "🧟" {
+                        xZombie = x
+                        yZombie = y
+                      }
+                  }
+              }
+        (xPlayer,yPlayer) = playerPosition
+        guard xZombie > -2, yZombie > -2  else {return}
+        
+        let rightleft = abs(yZombie-yPlayer)
+        let updown = abs(xZombie-xPlayer)
+        print(rightleft)
+        print(updown)
+        if(rightleft >= updown && rightleft > 1){
+            if yZombie >= yPlayer {
+                grid[xZombie][yZombie] = "⬜️"
+                grid[xZombie][yZombie-1] = "🧟"
+            }else if yZombie < yPlayer{
+                grid[xZombie][yZombie] = "⬜️"
+                grid[xZombie][yZombie+1] = "🧟"
+                
+            }
+            }else if (rightleft <= updown && updown > 1) {
+                if xZombie >= xPlayer {
+                    grid[xZombie][yZombie] = "⬜️"
+                    grid[xZombie-1][yZombie] = "🧟"
+                         }else if xZombie < xPlayer{
+                    grid[xZombie][yZombie] = "⬜️"
+                    grid[xZombie+1][yZombie] = "🧟"
+            }
+        }
+        
+    }
+    
+    }
+    
+
