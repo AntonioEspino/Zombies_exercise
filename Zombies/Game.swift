@@ -159,6 +159,5 @@ struct Game {
             }
         }
         return isLost
-    }
-    
+    }    
 }
