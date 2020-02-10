@@ -109,7 +109,7 @@ class ViewController: UIViewController {
                 updateSquare(x, y, content)
             }
         }
-
+        
         // update buttons
         // TODO: disable buttons that are not possible, e.g. down when there is no way to go down
         // can you find a way to gray out the disabled button as well?

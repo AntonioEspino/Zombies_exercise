@@ -87,22 +87,22 @@ struct Game {
         let rightPositionView = (playerPosition.0 , playerPosition.1 + 1)
         let leftPositionView = (playerPosition.0 , playerPosition.1 - 1)
         if !isflashlightOn{
-        for (x, row) in grid.enumerated() {
-            for (y, square) in row.enumerated() {
-                if (x, y) == upPositionView ||
-                    (x, y) == downPositionView ||
-                    (x, y) == rightPositionView ||
-                    (x, y) == leftPositionView {
-                    if square == "🔦"{
-                        isflashlightOn = true
+            for (x, row) in grid.enumerated() {
+                for (y, square) in row.enumerated() {
+                    if (x, y) == upPositionView ||
+                        (x, y) == downPositionView ||
+                        (x, y) == rightPositionView ||
+                        (x, y) == leftPositionView {
+                        if square == "🔦"{
+                            isflashlightOn = true
+                        }
                     }
                 }
             }
         }
-        }
         if isflashlightOn {
-                ZombieMove()
-                   }
+            ZombieMove()
+        }
         
         // move player
         let (x, y) = playerPosition
@@ -117,7 +117,7 @@ struct Game {
         case .right:
             updateSquare(x, y+1, "🚶‍♂️")
         }
-       
+        
     }
     
     func canPlayerMove(_ direction: Direction) -> Bool {
@@ -203,7 +203,7 @@ struct Game {
         }
         return isLost
     }
-
+    
     
     var blockedPos: (Int? , Int?){
         
@@ -224,13 +224,13 @@ struct Game {
         let xPlayer: Int
         let yPlayer: Int
         for (x, row) in grid.enumerated() {
-                  for (y, square) in row.enumerated() {
-                      if square == "🧟" {
-                        xZombie = x
-                        yZombie = y
-                      }
-                  }
-              }
+            for (y, square) in row.enumerated() {
+                if square == "🧟" {
+                    xZombie = x
+                    yZombie = y
+                }
+            }
+        }
         (xPlayer,yPlayer) = playerPosition
         guard xZombie > -2, yZombie > -2  else {return}
         
@@ -247,18 +247,18 @@ struct Game {
                 grid[xZombie][yZombie+1] = "🧟"
                 
             }
-            }else if (rightleft <= updown && updown > 1) {
-                if xZombie >= xPlayer {
-                    grid[xZombie][yZombie] = "⬜️"
-                    grid[xZombie-1][yZombie] = "🧟"
-                         }else if xZombie < xPlayer{
-                    grid[xZombie][yZombie] = "⬜️"
-                    grid[xZombie+1][yZombie] = "🧟"
+        }else if (rightleft <= updown && updown > 1) {
+            if xZombie >= xPlayer {
+                grid[xZombie][yZombie] = "⬜️"
+                grid[xZombie-1][yZombie] = "🧟"
+            }else if xZombie < xPlayer{
+                grid[xZombie][yZombie] = "⬜️"
+                grid[xZombie+1][yZombie] = "🧟"
             }
         }
         
     }
     
-    }
-    
+}
+
 
