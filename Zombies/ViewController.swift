@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     // FIXME: this action is never called, why?
+    
     @IBAction func didTapOverlayView(_ sender: UITapGestureRecognizer) {
         if remainingLives == 0 || game.hasWon {
             newGame()
