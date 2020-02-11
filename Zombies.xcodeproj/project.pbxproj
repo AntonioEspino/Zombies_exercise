@@ -14,6 +14,7 @@
 		0BA3659A23E9A20600BBE29A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3659823E9A20600BBE29A /* Main.storyboard */; };
 		0BA3659C23E9A20B00BBE29A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3659B23E9A20B00BBE29A /* Assets.xcassets */; };
 		0BA3659F23E9A20B00BBE29A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3659D23E9A20B00BBE29A /* LaunchScreen.storyboard */; };
+		7156D1C023F29C0800B493D9 /* RoundMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156D1BF23F29C0800B493D9 /* RoundMessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0BA3659B23E9A20B00BBE29A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA3659E23E9A20B00BBE29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BA365A023E9A20B00BBE29A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7156D1BF23F29C0800B493D9 /* RoundMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundMessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				0BA3659423E9A20600BBE29A /* SceneDelegate.swift */,
 				0BA3659623E9A20600BBE29A /* ViewController.swift */,
 				0BA3659823E9A20600BBE29A /* Main.storyboard */,
+				7156D1BF23F29C0800B493D9 /* RoundMessageViewController.swift */,
 				0BA3659B23E9A20B00BBE29A /* Assets.xcassets */,
 				0BA3659D23E9A20B00BBE29A /* LaunchScreen.storyboard */,
 				0BA365A023E9A20B00BBE29A /* Info.plist */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA3659723E9A20600BBE29A /* ViewController.swift in Sources */,
+				7156D1C023F29C0800B493D9 /* RoundMessageViewController.swift in Sources */,
 				0BA3659323E9A20600BBE29A /* AppDelegate.swift in Sources */,
 				0BA3659523E9A20600BBE29A /* SceneDelegate.swift in Sources */,
 				0B00CFBD23EB314900D3D76E /* Game.swift in Sources */,

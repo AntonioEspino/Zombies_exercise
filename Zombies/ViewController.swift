@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     // MARK: State
     var game: Game!
     var remainingLives = 3
@@ -29,13 +29,7 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     // FIXME: this action is never called, why?
-    @IBAction func didTapOverlayView(_ sender: UITapGestureRecognizer) {
-        if remainingLives == 0 || game.hasWon {
-            newGame()
-        } else if game.hasLost {
-            newRound()
-        }
-    }
+    
     
     @IBAction func moveUp(_ sender: UIButton) {
         game.movePlayer(.up)
@@ -71,14 +65,14 @@ class ViewController: UIViewController {
     func updateGameState() {
         if game.hasLost {
             remainingLives -= 1
-            displayFinalMessage(winning: false, hasRemainingLives: remainingLives > 0)
+            performSegue(withIdentifier: "PresentRoundMessage", sender: self)
             if remainingLives == 0 {
                 totalLosses += 1
             }
         }
         
         if game.hasWon {
-            displayFinalMessage(winning: true, hasRemainingLives: true)
+            
             totalWins += 1
         }
     }
@@ -170,21 +164,28 @@ class ViewController: UIViewController {
     
     func hideFinalMessage() {
         overlayView.isHidden = true
-        finalMesageLabel.isHidden = true
     }
     
-    func displayFinalMessage(winning: Bool, hasRemainingLives: Bool) {
-        overlayView.isHidden = false
-        finalMesageLabel.isHidden = false
+ 
+    //MARK: navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if winning {
-            finalMesageLabel.text =  "You won! 🥳"
-        } else if hasRemainingLives {
-            finalMesageLabel.text =  "Try again! 🤞"
-        } else {
-            finalMesageLabel.text =  "You lost! ☠️"
+        guard let destination = segue.destination as? RoundMessageViewController else { return }
+             
+        if game.hasWon {
+            destination.roundMessage =  "You won! 🥳"
+             } else if remainingLives > 0 {
+            destination.roundMessage =  "Try again! 🤞"
+             } else {
+            destination.roundMessage =  "You lost! ☠️"
+        }}
+        @IBAction func unwindToGame (unwindSegue: UIStoryboardSegue) {
+            if remainingLives == 0 || game.hasWon {
+                      newGame()
+                  } else if game.hasLost {
+                      newRound()
+                  }
         }
-    }
     
 }
 
